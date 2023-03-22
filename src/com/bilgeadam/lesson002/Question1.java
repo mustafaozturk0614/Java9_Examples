@@ -1,6 +1,6 @@
 package com.bilgeadam.lesson002;
 
-import java.util.Iterator;
+
 import java.util.Scanner;
 
 /*
