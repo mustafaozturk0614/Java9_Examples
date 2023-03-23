@@ -17,8 +17,9 @@ public class Question12 {
 
 		String[] dizi = sehirler.split(";");
 
-		for (String x : dizi) {
-			System.out.println(x);
+		for (int i = 0; i < dizi.length; i++) {
+			int index = dizi[i].indexOf("-");
+			System.out.println(dizi[i].substring(index + 1) + " plaka kodu: " + dizi[i].substring(0, index));
 		}
 
 	}

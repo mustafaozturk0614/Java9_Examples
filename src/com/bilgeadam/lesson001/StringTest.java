@@ -1,18 +1,17 @@
 package com.bilgeadam.lesson001;
 
 public class StringTest {
-	
+
 	public static void main(String[] args) {
-		String value=" Merhaba Dünya ";  //ctrl+alt+down
-		String value2=" Merhaba Dünya ";
-		////**********************////
-		System.out.println(value2==value);
-		System.out.println(value2.trim()==value.trim()); //
+		String value = " Merhaba Dünya "; // ctrl+alt+down
+		String value2 = " Merhaba Dünya ";
+		//// **********************////
+		System.out.println(value2 == value);
+		System.out.println(value2.trim() == value.trim()); //
 		System.out.println(value2.trim().equals(value));//
-		
+
 		System.out.println("/////////////////////////////");
-		
-		
+
 //	
 //		System.out.println(value.charAt(1));
 //		System.out.println(value.charAt(value.length()-1));
@@ -40,17 +39,16 @@ public class StringTest {
 //		System.out.println(value.equals("Merhaba Dünya"));
 //		System.out.println(value.equals("Merhaba dünya"));
 //		System.out.println(value.equalsIgnoreCase("merhaba dünya"));
-		
-		String value3="mustafa";
-		String value4="Mustafa";
-		String value5= new String("Mustafa");
-		
-		System.out.println(value3==value4);
-		System.out.println(value5==value4); // == referans kontrolu yapar 
-		System.out.println(value5.equals(value4)); //equals içerik kontrolu yapar
+
+		String value3 = "mustafa";
+		String value4 = "Mustafa";
+		String value5 = new String("Mustafa");
+
+		System.out.println(value3 == value4);
+		System.out.println(value5 == value4); // == referans kontrolu yapar
+		System.out.println(value5.equals(value4)); // equals içerik kontrolu yapar
 		System.out.println(value5.equals(value3));
-		
-		
+
 	}
 
 }
