@@ -53,4 +53,8 @@ public class MetotTest {
 	public static int metot3(int number1, int number2) {
 		return number1 + number2;
 	}
+
+	public static int metot3(int number1) {
+		return number1;
+	}
 }
