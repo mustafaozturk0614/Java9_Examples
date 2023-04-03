@@ -13,4 +13,17 @@ package com.bilgeadam.lesson007.sınavuygulaması;
  */
 public class Test {
 
+	public static void main(String[] args) {
+
+		Sınav sınav = new Sınav();
+		sınav.sinavOlustur();
+
+		for (Soru soru : sınav.sorular) {
+
+			System.out.println(soru);
+
+		}
+
+	}
+
 }

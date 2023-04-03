@@ -1,5 +1,7 @@
 package com.bilgeadam.lesson007.sınavuygulaması;
 
+import java.util.Scanner;
+
 /*
  * sınavolustur() => metodumuz olacak  Sınav sınıfında
  * dışardan gereken verileri alacak sınav konusu soru sayısı gibi..
@@ -27,4 +29,25 @@ public class Sınav {
 	public String[] cevaplar;
 	public String[] cevapSecenekleri = { "A", "B", "C", "D" };// A,B,C,D
 
+	public void sinavOlustur() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Lütfen Bir ders giriniz");
+		this.ders = scanner.nextLine();
+		System.out.println("Lütfen Bir sınav konus giriniz");
+		this.konu = scanner.nextLine();
+		System.out.println("Lütfen Soru Sayisini giriniz  giriniz");
+//		this.soruSayisi = scanner.nextInt();
+//		scanner.nextLine();
+		this.soruSayisi = Integer.parseInt(scanner.nextLine());
+		System.out.println("Lütfen sınav suresini giriniz");
+		this.sure = Long.parseLong(scanner.nextLine());
+		sorular = new Soru[soruSayisi];
+		for (int i = 0; i < soruSayisi; i++) {
+			Soru soru = new Soru();
+			soru.soruOlustur(cevapSecenekleri);
+			soru.sıraNo = i + 1;
+			sorular[i] = soru;
+		}
+
+	}
 }
