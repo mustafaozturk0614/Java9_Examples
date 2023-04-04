@@ -17,12 +17,14 @@ public class Test {
 
 		Sınav sınav = new Sınav();
 		sınav.sinavOlustur();
+		sınav.cevaplariGir();
+		sınav.cevaplarıKontrolEt();
 
-		for (Soru soru : sınav.sorular) {
-
-			System.out.println(soru);
-
-		}
+//		for (Soru soru : sınav.sorular) {
+//
+//			System.out.println(soru);
+//
+//		}
 
 	}
 

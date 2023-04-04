@@ -50,4 +50,38 @@ public class Sınav {
 		}
 
 	}
+
+	public void cevaplariGir() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Ders= " + this.ders);
+		System.out.println("Konu= " + this.konu);
+		System.out.println("Sure= " + this.sure);
+		this.cevaplar = new String[soruSayisi];
+		for (int i = 0; i < sorular.length; i++) {
+			System.out.println(sorular[i].icerik);//
+
+			for (int j = 0; j < sorular[i].cevapIcerikleri.length; j++) {
+				System.out.println(cevapSecenekleri[j] + "-)" + sorular[i].cevapIcerikleri[j]);
+			}
+			System.out.println("Lütfen cevabınızı giriniz (A,B,C,D olacak şekilde)");
+			cevaplar[i] = scanner.nextLine().toUpperCase();
+		}
+	}
+
+	public void cevaplarıKontrolEt() {
+		int dogruSayisi = 0;
+		int puan = 0;
+
+		for (int i = 0; i < sorular.length; i++) {
+			if (cevaplar[i].equals(sorular[i].dogruCevabı)) {
+				dogruSayisi++;
+				puan += sorular[i].puan;
+			}
+		}
+
+		System.out.println("dogru cevapsayınız= " + dogruSayisi);
+		System.out.println("yanlış cevapsayınız= " + (soruSayisi - dogruSayisi));
+		System.out.println("toplam puan= " + puan);
+
+	}
 }
