@@ -12,7 +12,7 @@ import java.util.Random;
  * elektrik pokemonunu 3 ateşin 4 , suyun 2 olsa;
  * 
  * pokemon yakala metodunda birde bize pokemon yakalama puanı uretilsin 1-8 arasında bir puan
- *  bu puan direnc katsayısından buyukse pokemon yakalnmıstır buna gore bize pokemonun yakalanıp yakalnamadıgını donsun; 
+ * bu puan direnc katsayısından buyukse pokemon yakalnmıstır buna gore bize pokemonun yakalanıp yakalnamadıgını donsun; 
  * 
  * 
  * 
