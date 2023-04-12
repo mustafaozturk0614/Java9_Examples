@@ -71,7 +71,6 @@ public class Sehir implements ISehir, Comparable<Sehir> {
 //			return 1;
 //
 //		}
-
 //		return this.nufus-o.nufus;
 
 		// plakaya gore sıralama
