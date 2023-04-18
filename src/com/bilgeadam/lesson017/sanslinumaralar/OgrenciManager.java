@@ -3,6 +3,7 @@ package com.bilgeadam.lesson017.sanslinumaralar;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class OgrenciManager {
@@ -90,6 +91,32 @@ public class OgrenciManager {
 		durumListesi.entrySet().forEach(System.out::println);
 
 		// 1-her bir ogrenciye bir tanede sozlu notu ekleyelim yani 4.notu ekleyelim
+
+		ogrenciManager.ogrenciler.stream().forEach(o -> {
+			Random random = new Random();
+			double not = random.nextDouble(50, 101);
+			o.getNotlar().add(not);
+		});
+		System.out.println("=====1.soru=====");
+		System.out.println(ogrenciManager.ogrenciler);
+
 		// 2- her bir ogrencinin her notuna +5 puan daha ekleyelim
+
+		ogrenciManager.ogrenciler.stream().forEach(o -> {
+			List<Double> list = new ArrayList<>();
+			for (int i = 0; i < o.getNotlar().size(); i++) {
+				if (o.getNotlar().get(i) < 96) {
+					list.add(o.getNotlar().get(i) + 5);
+				} else {
+					list.add(100D);
+				}
+			}
+			o.setNotlar(list);
+		});
+
+		ogrenciManager.ogrenciler.stream()
+				.forEach(o -> o.setNotlar(o.getNotlar().stream().map(x -> x + 5.0).collect(Collectors.toList())));
+		System.out.println("=====2.soru=====");
+		System.out.println(ogrenciManager.ogrenciler);
 	}
 }
