@@ -1,6 +1,8 @@
 package com.bilgeadam.lesson019;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -37,12 +39,13 @@ public class FileIslemler {
 		System.out.println("3-Dosya ya veri ekle");
 		System.out.println("4-Dosya dan veri oku");
 		System.out.println("5-Dosya da ki bir harfi değiştir");
-
 	}
 
 	public int secimYap() {
 		Scanner scanner = new Scanner(System.in);
-		return Integer.parseInt(scanner.nextLine());
+		String secim = scanner.nextLine();
+		return Integer.parseInt(secim);
+
 	}
 
 	public void uygulama() {
@@ -62,7 +65,13 @@ public class FileIslemler {
 				// dosyaSil2();
 				veriYaz();
 				break;
+			case 4:
 
+				dosyadanVeriOkuma();
+				break;
+			case 5:
+				harfDegistir();
+				break;
 			default:
 				break;
 			}
@@ -133,12 +142,12 @@ public class FileIslemler {
 	}
 
 	public void veriYaz() {
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner2 = new Scanner(System.in);
 		System.out.println("Lütfen veri giriniz");
-		String veri = scanner.nextLine();
+		String veri = scanner2.nextLine();
 		boolean kontrol = false;
 		System.out.println("Veri dosyanın devamınamı yazılsın (E/H)");
-		String deger = scanner.nextLine();
+		String deger = scanner2.nextLine();
 		if (deger.equalsIgnoreCase("E")) {
 			kontrol = true;
 		}
@@ -153,4 +162,47 @@ public class FileIslemler {
 		}
 
 	}
+
+	public String dosyadanVeriOkuma() {
+		String metin = "";
+
+		try (BufferedReader reader = new BufferedReader(new FileReader(FileSabitler.FILE))) {
+			String satır = "";
+
+			while ((satır = reader.readLine()) != null) {
+				if (metin.equals("")) {
+					metin += satır;
+				} else {
+					metin += "\n" + satır;
+				}
+			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println("metin==>" + metin);
+		return metin;
+	}
+
+	public void harfDegistir() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Lütfen eski harfi giriniz");
+		String eskiHarf = scanner.nextLine();
+		System.out.println("Lütfen yeni harfi giriniz");
+		String yeniHarf = scanner.nextLine();
+		String metin = dosyadanVeriOkuma();
+		metin = metin.replace(eskiHarf, yeniHarf);
+
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(FileSabitler.FILE))) {
+			System.out.println("Yazma işlemi gerçekleştirliyor");
+			Thread.sleep(2000);
+			writer.write(metin);
+			System.out.println("Yazma işlemi tamamlandı");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
 }
