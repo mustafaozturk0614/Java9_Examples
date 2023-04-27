@@ -5,10 +5,7 @@ import java.time.LocalDate;
 
 public class Movie implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8722940964154178535L;
+	private static final long serialVersionUID = 1L;
 
 	private String title;
 	private String genre;
