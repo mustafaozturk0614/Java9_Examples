@@ -1,8 +1,14 @@
 package com.bilgeadam.lesson021.okulapp;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Ogrenci {
+public class Ogrenci implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private String isim;
 
@@ -18,6 +24,7 @@ public class Ogrenci {
 		this.ortalama = ortalama;
 		this.durum = durum;
 		this.dogumTarihi = dogumTarihi;
+
 	}
 
 	public Ogrenci(String isim, double ortalama, LocalDate dogumTarihi) {
@@ -25,6 +32,8 @@ public class Ogrenci {
 		this.isim = isim;
 		this.ortalama = ortalama;
 		this.dogumTarihi = dogumTarihi;
+		durumBelirle(ortalama);
+
 	}
 
 	public Ogrenci(String isim, LocalDate dogumTarihi) {
@@ -63,6 +72,15 @@ public class Ogrenci {
 
 	public void setDogumTarihi(LocalDate dogumTarihi) {
 		this.dogumTarihi = dogumTarihi;
+	}
+
+	public void durumBelirle(double ort) {
+		if (ort > 60) {
+			setDurum(EDurum.GECTI);
+		} else {
+			setDurum(EDurum.KALDI);
+		}
+
 	}
 
 	@Override
