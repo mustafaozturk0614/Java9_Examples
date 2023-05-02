@@ -17,6 +17,7 @@ public class Ogrenci implements Serializable {
 	private EDurum durum;
 
 	private LocalDate dogumTarihi;
+	public static int index = 0;
 
 	public Ogrenci(String isim, double ortalama, EDurum durum, LocalDate dogumTarihi) {
 		super();
@@ -51,6 +52,7 @@ public class Ogrenci implements Serializable {
 	}
 
 	public EDurum getDurum() {
+
 		return durum;
 	}
 
