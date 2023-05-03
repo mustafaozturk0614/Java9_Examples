@@ -35,6 +35,16 @@ public class Taksi implements Runnable {
 	private int musteriSayisi;
 	private List<Integer> musteriNolar;
 	private long beklemeSuresi;
+	Object object = new Object();
+	private Durak Durak;
+
+	public Durak getDurak() {
+		return Durak;
+	}
+
+	public void setDurak(Durak durak) {
+		Durak = durak;
+	}
 
 	public Taksi(int id) {
 		this.id = id;
@@ -44,20 +54,22 @@ public class Taksi implements Runnable {
 
 	private long beklemeSuresiAta() {
 		Random random = new Random();
-		return random.nextLong(1000, 5000);
+		return random.nextLong(1, 5);
 	}
 
 	@Override
 	public void run() {
-		try {
-			Thread.sleep(beklemeSuresi);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		while (!Durak.getMusteriler().isEmpty()) {
+//		try {
+//			Thread.sleep(beklemeSuresi);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		while (!Durak.isEmpty()) {
+			int musteriId;
 
-			int musteriId = Durak.getMusteriler().poll();
+			musteriId = Durak.musteriAl();
+
 			musteriNolar.add(musteriId);
 			musteriSayisi = musteriNolar.size();
 			System.out.println(

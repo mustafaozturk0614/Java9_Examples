@@ -8,7 +8,7 @@ import java.util.Queue;
 public class Durak {
 
 	private List<Taksi> taksiler;
-	static Queue<Integer> musteriler;
+	Queue<Integer> musteriler;
 
 	public Durak() {
 		taksiler = new ArrayList<>();
@@ -18,7 +18,7 @@ public class Durak {
 	}
 
 	public void musteriOlustur() {
-		for (int i = 1; i <= 100; i++) {
+		for (int i = 1; i <= 5000; i++) {
 			musteriler.add(i);
 		}
 
@@ -26,8 +26,9 @@ public class Durak {
 
 	public void taksiOlustur() {
 
-		for (int i = 1; i <= 10; i++) {
+		for (int i = 1; i <= 50; i++) {
 			Taksi taksi = new Taksi(i);
+			taksi.setDurak(this);
 			taksiler.add(taksi);
 
 		}
@@ -37,7 +38,7 @@ public class Durak {
 		return taksiler;
 	}
 
-	public static Queue<Integer> getMusteriler() {
+	public Queue<Integer> getMusteriler() {
 		return musteriler;
 	}
 
@@ -47,6 +48,16 @@ public class Durak {
 
 	public void setMusteriler(Queue<Integer> musteriler) {
 		this.musteriler = musteriler;
+	}
+
+	public synchronized int musteriAl() {
+		
+		return musteriler.poll();
+	}
+
+	public synchronized boolean isEmpty() {
+
+		return musteriler.isEmpty();
 	}
 
 }
