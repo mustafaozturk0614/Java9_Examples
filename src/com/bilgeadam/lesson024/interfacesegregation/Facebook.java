@@ -1,9 +1,9 @@
-package com.bilgeadam.lesson024.liskovsubstitution;
+package com.bilgeadam.lesson024.interfacesegregation;
 
 import com.bilgeadam.lesson024.utility.Notification;
 import com.bilgeadam.lesson024.utility.User;
 
-public class Facebook extends SocialMedia implements IEmailSendable, IPostable {
+public class Facebook extends SocialMedia implements IEmailSendable, IPostable, IShareableStory, IChatable {
 
 	@Override
 	public void changeScaleRatio(String type) {

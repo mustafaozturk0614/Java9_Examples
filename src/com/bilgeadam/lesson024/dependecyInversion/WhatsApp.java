@@ -1,6 +1,9 @@
-package com.bilgeadam.lesson024.liskovsubstitution;
+package com.bilgeadam.lesson024.dependecyInversion;
 
-public class WhatsApp extends SocialMedia implements IConferencable {
+import com.bilgeadam.lesson024.dependecyInversion.exception.StoryException;
+import com.bilgeadam.lesson024.dependecyInversion.exception.VideoException;
+
+public class WhatsApp extends SocialMedia implements IConferencable, IShareableStory, IChatable {
 
 	@Override
 	public void changeScaleRatio(String type) {
@@ -22,7 +25,7 @@ public class WhatsApp extends SocialMedia implements IConferencable {
 
 	@Override
 	public void shareStory() {
-		// TODO Auto-generated method stub
+		throw new StoryException("Hikaye hatası");
 
 	}
 
@@ -34,7 +37,7 @@ public class WhatsApp extends SocialMedia implements IConferencable {
 
 	@Override
 	public void videoConferencing() {
-		// TODO Auto-generated method stub
+		throw new VideoException("Video hatası");
 
 	}
 

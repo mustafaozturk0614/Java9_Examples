@@ -1,24 +1,39 @@
-package com.bilgeadam.lesson024.liskovsubstitution;
+package com.bilgeadam.lesson024.interfacesegregation;
 
 import com.bilgeadam.lesson024.utility.Notification;
 import com.bilgeadam.lesson024.utility.User;
 
-public class Facebook extends SocialMedia implements IEmailSendable, IPostable {
+/*
+ * twitter diye bir sosyal medya geldi ve hikaye paylaşma ozelliğini ve 
+ * video konferans özelliğini desteklemiyor 
+ * 
+ * 
+ * 
+ */
+public class Instagram extends SocialMedia
+		implements ISmsSendable, IEmailSendable, IPostable, IShareableStory, IChatable {
 
 	@Override
 	public void changeScaleRatio(String type) {
+
 		if (type.equalsIgnoreCase("jpg")) {
-			setScaleRatio(34);
+			setScaleRatio(38);
 		} else if (type.equalsIgnoreCase("png")) {
-			setScaleRatio(37);
+			setScaleRatio(30);
 		} else {
-			setScaleRatio(45);
+			setScaleRatio(40);
 		}
 	}
 
 	public void sendEmailNotification(User user) {
 		if (user.getEmail() != null) {
 			Notification.sendEmail(user.getEmail());
+		}
+	}
+
+	public void sendSmsNotification(User user) {
+		if (user.getPhone() != null) {
+			Notification.sendSms(user.getPhone());
 		}
 	}
 
@@ -45,4 +60,5 @@ public class Facebook extends SocialMedia implements IEmailSendable, IPostable {
 		// TODO Auto-generated method stub
 
 	}
+
 }

@@ -1,6 +1,6 @@
-package com.bilgeadam.lesson024.liskovsubstitution;
+package com.bilgeadam.lesson024.interfacesegregation;
 
-public class WhatsApp extends SocialMedia implements IConferencable {
+public class WhatsApp extends SocialMedia implements IConferencable, IShareableStory, IChatable {
 
 	@Override
 	public void changeScaleRatio(String type) {
