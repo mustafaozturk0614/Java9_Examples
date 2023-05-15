@@ -12,4 +12,10 @@ public class KlasikPizza extends Pizza {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "KlasikPizza [getFiyat()=" + getFiyat() + ", getTur()=" + getTur() + ", getBoyut()=" + getBoyut()
+				+ ", getHamurTipi()=" + getHamurTipi() + "]";
+	}
+
 }

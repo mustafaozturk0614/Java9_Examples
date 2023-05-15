@@ -12,4 +12,10 @@ public class VeganPizza extends Pizza {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "VeganPizza [getFiyat()=" + getFiyat() + ", getTur()=" + getTur() + ", getBoyut()=" + getBoyut()
+				+ ", getHamurTipi()=" + getHamurTipi() + "]";
+	}
+
 }
