@@ -14,10 +14,10 @@ public class Deneme {
 		int sayi1 = 3;
 		int sayi2 = 7;
 
-		int toplam = sayi1++ + ++sayi1 + --sayi2 - ++sayi1;
+		int toplam = sayi1++ + ++sayi1 + --sayi2;
 		// 3 +5+6-6
 		System.out.println(toplam);
-		int sayiDizisi[] = { 0, 1, 5, 3 };
+		int sayiDizisi[] = { 0, 1, 5, 3, 1, 5, 8, 7 };
 
 		ilkTekrarEdenSayiyiYaz(sayiDizisi);
 
